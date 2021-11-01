@@ -45,7 +45,7 @@ include "../include/header.php";
                                      <h2><strong>:: Bio - data :: </strong></h2>
                                      <br>
                                      <br>
-                                     <a ><img src="../../index/backend/<?php echo   $_SESSION['passport']?>" class="rounded-circle shadow " width="200" alt="profile-image"></a>
+                                     <a ><img src="../../index/backend/<?php echo   $_SESSION['passport']?>" width="150" height="150" alt="profile-image"></a>
                                      
                                     </div>
                                     <br>
