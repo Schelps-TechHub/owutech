@@ -14,6 +14,9 @@ $sql = "SELECT count('userid') FROM `users_tbl` WHERE userid  = '$agentid'";
 if($count == 0){
     $sql = "INSERT INTO `users_tbl` ( userid, passpin) VALUES ('$agentid', '$agentpwd' ) ";
     if(mysqli_query($con, $sql)){
+        $sql = "INSERT INTO `users_access` ( userid, agent) VALUES ('$agentid', 1 ) ";
+    if(mysqli_query($con, $sql)){
+    }
        $feedback = ' 
         <div class="alert alert-success alert-has-icon">
              <div class="alert-icon"><i class="far fa-lightbulb"></i></div>
