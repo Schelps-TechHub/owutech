@@ -552,7 +552,7 @@ echo '
                                     <button data-toggle="modal" data-target="#processadmission" class="btn btn-raised btn-success btn-lg btn-block btn-round waves-effect"><h6>Process Admission </h6> </button>
                                 </div>
                                 <div class="col-lg-6 col-md-6 col-sm-8">
-                                    <button type="reset" onclick = " window.location='../pages/myforms.php'"class="btn btn-raised btn-warning btn-lg btn-block btn-round waves-effect"><h6>Decline Admission </h6> </button>
+                                    <button type="reset" onclick = " window.location='../pages/mgform.php'"class="btn btn-raised btn-warning btn-lg btn-block btn-round waves-effect"><h6>Close Form </h6> </button>
                                 </div>   
                                       
                                 <br><br>   <br><br>  

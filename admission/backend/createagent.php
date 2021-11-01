@@ -40,3 +40,5 @@ if($count == 0){
 else{
     echo ' Username already exist. Choose another Agent Username and Try Again.';
 } 
+
+?>
