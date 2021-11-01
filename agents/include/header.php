@@ -9,7 +9,7 @@ if(!isset($_SESSION['uniqueid'])){
   $id = $_SESSION['uniqueid'];
   $token = $_SESSION['token'];
   
-  $sql ="SELECT * from `log` where userid = '$id' and token = '$token'";
+  $sql ="SELECT * from `capslog` where userid = '$id' and token = '$token'";
   $result = mysqli_query($con,$sql);
     $row = mysqli_fetch_array($result);
     $status = $row['status'];

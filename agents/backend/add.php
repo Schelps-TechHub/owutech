@@ -22,7 +22,7 @@ include "dbconfig.php";
     if (in_array($fileExtension, $allowedfileExtensions))
     {
       // directory in which the uploaded file will be moved
-      $uploadFileDir = 'image/';
+      $uploadFileDir = '../../index/backend/image/';
       $dest_path = $uploadFileDir . $neoFileName;
 
       if(move_uploaded_file($fileTmpPath, $dest_path)) 

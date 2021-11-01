@@ -35,11 +35,18 @@ $timezone =  $LocationArray['timezone_gmt'];
                         $lastname = "$row[lastname]";
 						
 	if ($agentpwd == $mypass) {
-		
-		$sql= "UPDATE capslog SET status = 0 where userid = '$acctnum' ";
+    $sql = "SELECT agent FROM `users_access` WHERE userid  = '$agent'";
+    $result=mysqli_query($con,$sql);
+           $row=mysqli_fetch_array($result);
+                      $access = "$row[agent]";
+                      
+          
+                      if($access == $stat){
+
+		$sql= "UPDATE capslog SET `status` = 0 where userid = '$agent' ";
 		if(mysqli_query($con, $sql)){
 		}
-					
+  		
 	function generateRandomString($length = 16) {
     $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
     $charactersLength = strlen($characters);
@@ -51,7 +58,7 @@ $timezone =  $LocationArray['timezone_gmt'];
 }
 		 $token = generateRandomString();
 		 $status = 1;
-     $sql= "INSERT INTO  log (userid, token, status, ip, country, region, city, timezone, type, browser)  
+     $sql= "INSERT INTO  capslog (userid, token, `status`, ip, country, region, city, timezone, `type`, browser)  
      VALUES ('$agent','$token', '$status', '$uip','$country', '$region', '$city', '$timezone', '$mytype', '$browser')";
 		if(mysqli_query($con, $sql)){	
 		
@@ -103,12 +110,32 @@ $timezone =  $LocationArray['timezone_gmt'];
                     <button class="close" data-dismiss="alert">
                               <span>&times;</span>
                             </button>
-                    The Password you entered is incorrect
+                   Sorry! you do not have access to this office.
                  </div>
         </div>';
           $_SESSION['reginfo'] = $feedback;
           header("Location: ../pages/user_login.php");
       }
+
+    }
+
+    else 
+    {
+      $feedback = ' 
+      <div class="alert alert-danger alert-has-icon">
+           <div class="alert-icon"><i class="
+           far fa-hand-paper"></i></div>
+              <div class="alert-body">
+                  <div class="alert-title">Ooops! '.$agentid.'</div>
+                  <button class="close" data-dismiss="alert">
+                            <span>&times;</span>
+                          </button>
+                  The Password you entered is incorrect
+               </div>
+      </div>';
+        $_SESSION['reginfo'] = $feedback;
+        header("Location: ../pages/user_login.php");
+    }
       
         }
 	else 
@@ -122,7 +149,7 @@ $timezone =  $LocationArray['timezone_gmt'];
                     <button class="close" data-dismiss="alert">
                               <span>&times;</span>
                             </button>
-                    Incorrect Admission Advisor Id / Email Address
+                    Incorrect User Id / Email Address
                  </div>
         </div>';
           $_SESSION['reginfo'] = $feedback;
@@ -146,6 +173,6 @@ $timezone =  $LocationArray['timezone_gmt'];
           $_SESSION['reginfo'] = $feedback;
           header("Location: ../pages/user_login.php");
       }
- 
+    
 
 ?>

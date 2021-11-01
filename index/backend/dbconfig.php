@@ -10,3 +10,10 @@ $con = mysqli_connect($host, $user, $password,$dbname);
 if (!$con) {
  die("Connection failed: " . mysqli_connect_error());
 }
+
+try
+{
+$conn=new PDO("mysql:host=localhost;dbname=caps_owu","root","");
+} catch (PDOException $ex) {
+echo 'Exception'.$ex->getMessage();
+}
