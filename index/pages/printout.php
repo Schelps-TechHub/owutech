@@ -105,7 +105,7 @@ $cert_origin = $row["cert_origin"];
 <meta name="description" content="Owu College Of Management And Technology (OWUTECH) Admission Applicaiton Form">
 <meta name="author" content="Adeyemi F.O">
 <link rel="shortcut icon" href="favicon.ico">
-
+<link rel="icon" href="assets/images/logo.png" type="image/x-icon">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 
 <style type="text/css">
