@@ -253,9 +253,8 @@ if (mysqli_num_rows($result) > 0) {
                                             <div class="form-group">
                                             <select  name="entrymode" id="entrymode" class="form-control show-tick ms select2"  tabindex="18"  >
                                                     <option value="">select </option>
-                                                    <option value="utme">JAMB UTME</option>
-                                                    <option value="regular">Regular</option>
-                                                    <option value="direct">DIRECT ENTRY</option>
+                                                    <option value="Regular">Regular</option>
+                                                    
                                                 </select>
                                             </div>
                                 </div>  
