@@ -154,7 +154,7 @@ else{
         success:function(data){
          
          if (data.includes("Success")) {
-            window.location='mgapplicant.php'
+            window.location='mgform.php'
             $("#feedback").html(data);
         }
         else{

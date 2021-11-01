@@ -10,7 +10,7 @@ $sql = "SELECT `session` from `sessiontbl` where `status` = 1" ;
   // output data of each row
  $session = $row["session"];
 //set admission status
-$sql =  "UPDATE `form_owner` SET `admission_status` = '1' where regnum = '$regnum'";
+$sql =  "UPDATE `form_owner` SET `admission_status` = '1', `session` = '$session', vetted = '$_SESSION[uniqueid]' where regnum = '$regnum'";
   if(mysqli_query($con, $sql)){
       //record new level
     $sql= " INSERT INTO  `std_level` (userid, `level`, `session`) VALUES ('$regnum', 100,'$session')";
