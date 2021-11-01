@@ -193,6 +193,7 @@ echo '
 
 <script src="assets/bundles/mainscripts.bundle.js"></script><!-- Custom Js --> 
 <script src="assets/js/pages/tables/jquery-datatable.js"></script>
+<script src="assets/js/feed.js"></script>
 </body>
 
 
