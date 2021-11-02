@@ -17,7 +17,13 @@ include "../backend/dbconfig.php";
  $surname = $row["surname"];
  $gender = $row["gender"];
  $dob = $row["dateofbirth"];
-
+ //contact
+ $sql = "select * from form_contact where regnum = '$formnum'" ;
+ $result=mysqli_query($con,$sql);
+ $row=mysqli_fetch_array($result);
+  // output data of each row
+ $email = $row["emailadd"];
+ $phone = $row["phonenum"];
   //Programme
 
  $sql = "select form_prog.progid, form_prog.entry, form_prog.olevel, programmes.progid, programmes.program, programmes.course, programmes.mode  from form_prog LEFT JOIN programmes on form_prog.progid = programmes.progid where regnum = '$formnum'" ;
@@ -29,6 +35,19 @@ include "../backend/dbconfig.php";
  $program = $row["program"];
  $course = $row["course"];
 
+ $sql = "select * from form_owner where regnum = '$formnum'" ;
+ $result=mysqli_query($con,$sql);
+ $row=mysqli_fetch_array($result);
+  // output data of each row
+ $session = $row["session"];
+
+ //select fee
+ $sql = "select * from allfees_tbl where feeid = 1" ;
+ $result=mysqli_query($con,$sql);
+ $row=mysqli_fetch_array($result);
+  // output data of each row
+ $fee = $row["fee_name"];
+ $amount = $row["fee_amount"];
 ?>
 <!doctype html>
 <html class="no-js " lang="en">
@@ -178,7 +197,16 @@ include "../backend/dbconfig.php";
                                                  <p><strong><?php echo  strtoupper($entry)?></strong></p>
                                               </div>
                                       </div>
-                                        
+                                      <div class="col-lg-4 col-md-4 col-sm-8">
+                                             <label for="firstname"><small>Academic Session</small></label>
+                                              
+                                         </div>
+                                        <div class="col-lg-6 col-md-6 col-sm-8">
+                                                
+                                             <div class="form-group">
+                                                 <p><strong><?php echo  strtoupper($session)?></strong></p>
+                                              </div>
+                                      </div>
                                    </div>
                                 
                                 
@@ -208,7 +236,7 @@ include "../backend/dbconfig.php";
                                 <li>2. Complete Online Documentation</li>
                                 <li>3. Print Admission Letter</li>
                                
-                                <li><button class="btn btn-success">Proceed to Pay ==></button></li>
+                                <li><button class="btn btn-success" onClick="makePayment()">Proceed to Pay ==></button></li>
                             </ul>
                         </div>
                     </div>
@@ -224,7 +252,62 @@ include "../backend/dbconfig.php";
     </div>
 
 </body>
+ <script>
+ function makePayment() {
+     
+     var tdref= "pref"+Math.floor(Math.random() * 10000000);
+     var formid = "<?php echo $formnum ?>";
+     var payable = "<?php echo $amount ?>";
+     var feeid = 1;
+     
+    $.ajax({
+        url:'../backend/payprecord.php',
+        method:'POST',
+        data:{
+            
+            payable:payable,
+            formid:formid,
+            feeid:feeid,
+            tref:tdref
+        },
+    
+       success: FlutterwaveCheckout({
+      public_key: "FLWPUBK_TEST-72e002fdbcede385bf4906fad23496c6-X",
+      tx_ref: tdref,
+      amount: payable,
+      currency: "NGN",
+      country: "NG",
+      payment_options: " ",
+      redirect_url: // specified redirect URL
+        "../backend/paycheck.php",
+      meta: {
+        consumer_id: formid,
+        consumer_mac: "92a3-912ba-1192a",
+      },
+      customer: {
+        email: "<?php echo $email ?>",
+        phone_number: "<?php echo $phone ?>",
+        name: "<?php echo strtoupper($firstname." ".$othername." ".$surname) ?>",
+      },
+      callback: function (data) {
+        console.log(data);
+      },
+      onclose: function() {
+        // close modal
+        window.location='admprocess.php'
+      },
+      customizations: {
+        title: "<?php echo $fee ?>",
+        description: "Owutech Student Portal Enrollment Fee",
+        logo: "https://owutechportal.com.ng/index/assets/images/logo.png",
+    },
+    }),
+  })
+  }
+ </script>
+
 <!-- Jquery Core Js --> 
+<script src="https://checkout.flutterwave.com/v3.js"></script>
 <script src="assets/bundles/libscripts.bundle.js"></script> <!-- Lib Scripts Plugin Js -->
 <script src="assets/bundles/vendorscripts.bundle.js"></script> <!-- Lib Scripts Plugin Js -->
 

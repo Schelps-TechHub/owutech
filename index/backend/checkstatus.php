@@ -17,8 +17,33 @@ if($num >= 1){
     $status = $row["admission_status"];
     //successful
     if($status == 1){
-        $feedback = ' 
-        <div class="alert alert-warning alert-has-icon">
+
+      $sql = "SELECT * FROM `all_transaction` WHERE userid  = '$regnum' and feeid = 1 and paystatus = 1";
+			$result=mysqli_query($con,$sql);
+             $row=mysqli_fetch_array($result);
+                        $paystatus = "$row[paystatus]";
+                        $tref = "$row[tref]";
+
+                        if($paystatus == 1){ 
+                          $feedback = ' 
+                          <div class="alert alert-success alert-has-icon">
+                               <div class="alert-icon"><i class="
+                               far fa-hand-paper"></i></div>
+                                  <div class="alert-body">
+                                      <div class="alert-title">Congratulations!</div>
+                                      <button class="close" data-dismiss="alert">
+                                                <span>&times;</span>
+                                              </button>
+                                              Status : Your Admission Application is Successful and Portal Enrolment Fee Payment successfully recorded
+                                   </div>
+                          </div>';
+                          $_SESSION['userid'] =  $regnum;
+                          $_SESSION['tref'] = $tref;
+                          $_SESSION['reginfo'] = $feedback;
+                          header("Location: ../../student/pages/onboard.php");
+                      }
+        else{ $feedback = ' 
+        <div class="alert alert-success alert-has-icon">
              <div class="alert-icon"><i class="
              far fa-hand-paper"></i></div>
                 <div class="alert-body">
@@ -34,6 +59,7 @@ if($num >= 1){
         $_SESSION['reginfo'] = $feedback;
         header("Location: ../pages/admprocess.php");
     }
+  }
     //pending
     elseif($status == 0) {
         $feedback = ' 

@@ -70,18 +70,18 @@ include "../include/header.php";
                                     </tfoot>
                                     <tbody>
  <?php
-  $userid = 	$_SESSION['uniqueid'];
+  
                                  
-$sql_query = "SELECT form_owner.regnum as regid, form_owner.admission_status, form_owner.status,  form_owner.rectime, form_bio.regnum, form_bio.firstname, form_bio.othername, form_bio.surname, form_bio.passport, form_prog.regnum, form_prog.progid, programmes.course, programmes.program, programmes.mode, std_level.userid, std_level.level FROM form_owner 
+$sql_query = "SELECT DISTINCT form_owner.regnum as regid, form_owner.admission_status, form_owner.status,  form_owner.rectime, form_bio.regnum, form_bio.firstname, form_bio.othername, form_bio.surname, form_bio.passport, form_prog.regnum, form_prog.progid, programmes.course, programmes.program, programmes.mode, std_level.userid, std_level.level FROM form_owner 
 LEFT JOIN form_bio ON form_owner.regnum = form_bio.regnum
 LEFT JOIN form_prog ON form_owner.regnum = form_prog.regnum 
 LEFT JOIN programmes ON form_prog.progid = programmes.progid
 LEFT JOIN std_level ON form_owner.regnum = std_level.userid
-where admission_status = 1 and `status` = 11 ORDER BY rectime DESC" ;
+where admission_status = 1 and form_owner.status = 11 ORDER BY rectime DESC" ;
 $result = mysqli_query($con,$sql_query);
 if (mysqli_num_rows($result) > 0) {
   // output data of each row
-  while($row = mysqli_fetch_assoc($result)) {
+  while($row = mysqli_fetch_array($result)) {
    
 $button = '<a href="studentinfo.php?ref='.$row["regid"].'" type = "button" class="btn btn-raised btn-success btn-lg btn-block btn-round waves-effect"> View Information </a>';
   
