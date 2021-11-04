@@ -46,8 +46,8 @@ include "../backend/dbconfig.php";
                           ?>
                     </div>
                     <div class="body">
-                    <div class="input-group mb-3">
-                            <input type="text" class="form-control" name="regnum" placeholder="Enter REG********" minlength="11" maxlength="11" >
+                          <div class="input-group mb-3">
+                            <input type="text" class="form-control" name="regnum" placeholder="Enter REG********" required ="yes" minlength="11" maxlength="11" >
                             <div class="input-group-append">
                                 <span class="input-group-text"><i class="zmdi zmdi-search"></i></span>
                             </div>

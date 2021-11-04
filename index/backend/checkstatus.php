@@ -4,6 +4,16 @@ include "dbconfig.php";
 
 $regnum = mysqli_real_escape_string($con,$_POST['regnum']);
 
+
+//check if portal has not been enrolled
+
+$sql = "SELECT COUNT('regnum') as cnt from pass_pin where regnum = '$regnum'" ;
+$result=mysqli_query($con,$sql);
+$row=mysqli_fetch_assoc($result);
+$num = $row["cnt"];
+if($num == 0){
+
+  //check admission status
 $sql = "SELECT COUNT('regnum') as cnt from form_owner where regnum = '$regnum'" ;
 $result=mysqli_query($con,$sql);
 $row=mysqli_fetch_assoc($result);
@@ -17,7 +27,7 @@ if($num >= 1){
     $status = $row["admission_status"];
     //successful
     if($status == 1){
-
+//check payment status
       $sql = "SELECT * FROM `all_transaction` WHERE userid  = '$regnum' and feeid = 1 and paystatus = 1";
 			$result=mysqli_query($con,$sql);
              $row=mysqli_fetch_array($result);
@@ -94,5 +104,23 @@ if($num >= 1){
     </div>';
              $_SESSION['reginfo'] = $feedback;
              header("Location: ../pages/checkadmission.php");
+}
+}
+else{
+$feedback = ' 
+    <div class="alert alert-danger alert-has-icon">
+         <div class="alert-icon"><i class="
+         far fa-hand-paper"></i></div>
+            <div class="alert-body">
+                <div class="alert-title">Ooops!</div>
+                <button class="close" data-dismiss="alert">
+                          <span>&times;</span>
+                        </button>
+                        Status : Your portal account has already been created . Log in here to access your portal
+             </div>
+    </div>';
+             $_SESSION['reginfo'] = $feedback;
+             header("Location: ../index.php");
+
 }
 ?>

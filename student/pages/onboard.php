@@ -107,7 +107,7 @@ $_SESSION['reginfo'] =  '
         <div class="row">
        
         <div class="col-lg-4" style="display: block; margin-left: auto;margin-right: auto;" >
-                <form class="card auth_form" method="POST" action="../backend/checkstatus.php">
+                <form class="card auth_form" method="POST" action="../backend/onboard.php">
                     <div class="header">
                     <img class="logo" src="assets/images/logo.png" alt="">
                        <strong> <h5>Create Portal Password </h5></strong>
@@ -137,7 +137,7 @@ $_SESSION['reginfo'] =  '
                     <div class="input-group-append">
                       <span class="input-group-text"><i class="zmdi zmdi-key"></i></span>
                      </div>   
-                    <input type="password" class="form-control" id="regpwd" placeholder="Enter Password ********" minlength="6" maxlength="20" onchange="checkpwd();" >
+                    <input type="password" class="form-control" id="regpwd"  name="regpwd" placeholder="Enter Password ********" minlength="6" maxlength="20" onchange="checkpwd();" >
                            
                     </div>
                     <div class="input-group mb-3">

@@ -100,7 +100,7 @@ include "backend/dbconfig.php";
             </div>        
         </div>
             <div class="col-lg-4 col-sm-12">
-                <form method="POST" action="../backend/dologin.php" class="card auth_form">
+                <form method="POST" action="../student/backend/dologin.php" class="card auth_form">
                     <div class="header">
                         <img class="logo" src="assets/images/logo.png" alt="">
                         <h5> Existing Student :: Log in</h5>

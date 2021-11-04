@@ -58,6 +58,7 @@ $timezone =  $LocationArray['timezone_gmt'];
 }
 		 $token = generateRandomString();
 		 $status = 1;
+     $mytype = "agent";
      $sql= "INSERT INTO  capslog (userid, token, `status`, ip, country, region, city, timezone, `type`, browser)  
      VALUES ('$agent','$token', '$status', '$uip','$country', '$region', '$city', '$timezone', '$mytype', '$browser')";
 		if(mysqli_query($con, $sql)){	
