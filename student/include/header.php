@@ -115,7 +115,7 @@ $result = mysqli_query($con,$sql);
             <li class=" open"><a href="profile.php"><i class="zmdi zmdi-home"></i><span>My Profile</span></a></li>
             <li><a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-apps"></i><span>Course Registration</span></a>
                 <ul class="ml-menu">
-                    <li><a href="continuation.php">Cousre Registration</a></li>
+                    <li><a href="continuation.php">Course Registration</a></li>
                     <li><a href="myforms.php">Print Course Forms</a></li>                   
                 </ul>
             </li>

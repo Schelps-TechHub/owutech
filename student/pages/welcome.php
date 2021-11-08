@@ -37,7 +37,7 @@ include "../include/header.php";
                             <h2>0 <small class="info">Registered</small></h2>
                             <small>as at today <?php echo date("d-m-Y");?></small>
                             <div class="progress">
-                                <div class="progress-bar l-green" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%;"></div>
+                                <div class="progress-bar l-amber" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%;"></div>
                             </div>
                         </div>
                     </div>
@@ -72,7 +72,7 @@ include "../include/header.php";
                             ?> <small class="info"> Due Payments</small></h2>
                             <small>as at today <?php echo date("d-m-Y");?></small>
                             <div class="progress">
-                                <div class="progress-bar l-blue" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%;"></div>
+                                <div class="progress-bar l-amber" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%;"></div>
                             </div>
                         </div>
                     </div>
@@ -105,7 +105,7 @@ include "../include/header.php";
                             <h2>0 <small class="info">Support Tickets</small></h2>
                             <small>as at today <?php echo date("d-m-Y");?></small>
                             <div class="progress">
-                                <div class="progress-bar l-green" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%;"></div>
+                                <div class="progress-bar l-amber" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%;"></div>
                             </div>
                         </div>
                     </div>
@@ -131,7 +131,7 @@ include "../include/header.php";
                 <div class="col-lg-3 col-md-6 col-sm-12">
                     <div class="card widget_2 big_icon domains">
                         <div class="body">
-                        <h6>Student <br> Affairs </h6>
+                        <h6>Student Affairs </h6>
                             <h2><?php
                             $sql = "SELECT count('id') FROM form_owner where userid = '$id' and `status` = 1";
                             $result = mysqli_query($con,$sql);
@@ -140,7 +140,7 @@ include "../include/header.php";
                             ?> <small class="info"> Activities</small></h2>
                             <small>as at today <?php echo date("d-m-Y");?></small>
                             <div class="progress">
-                                <div class="progress-bar l-blue" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%;"></div>
+                                <div class="progress-bar l-amber" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%;"></div>
                             </div>
                         </div>
                     </div>
