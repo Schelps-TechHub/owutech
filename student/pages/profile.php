@@ -234,6 +234,48 @@ if (mysqli_num_rows($result) > 0) {
             </div>
         </div>
     </div>
+    <div class="modal fade" id="processagent" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4  class="title" id="defaultModalLabel" style="display: block; margin-left: auto;margin-right: auto;">Add New Admission Agent</h4>
+            </div>
+            <div class="modal-body"> 
+                <div class="header">
+                   </div>
+                                    
+                 <form method="POST"  class="card auth_form"  >         
+                                <div class="row clearfix" style="display: block; margin-left: auto;margin-right: auto;">  
+                                <div class="col-lg-8 col-md-8">
+                                    <label> Agent Username</label>
+                                    <div class="input-group masked-input mb-3">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text"><i class="zmdi zmdi-smartphone"></i></span>
+                                        </div>
+                                        <input type="text" class="form-control key" id ="agentid" maxlength="12"  minlength="6">
+                                    </div>
+                                </div>
+                                <div class="col-lg-8 col-md-8">
+                                    <label>Agent Password</label>
+                                    <div class="input-group masked-input mb-3">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text"><i class="zmdi zmdi-key"></i></span>
+                                        </div>
+                                        <input type="text" class="form-control key" id ="agentpwd" maxlength="12"  minlength="6" >
+                                    </div>
+                                </div>
+                                </div>
+                       
+               
+            <div class="modal-footer">
+                <button type="submit" onclick="addagent();" class="btn btn-success  waves-effect">Create Agent Account</button>
+                <button type="button" class="btn btn-danger waves-effect" data-dismiss="modal">Cancel</button>
+            </div>
+            </form>
+        </div>
+    </div>
+</div> 
+    </div>
 </section>
 <!-- Jquery Core Js --> 
 <script src="assets/bundles/libscripts.bundle.js"></script> <!-- Lib Scripts Plugin Js -->

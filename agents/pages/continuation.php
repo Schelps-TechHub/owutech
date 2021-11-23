@@ -30,7 +30,12 @@ function generateRandomString($length = 8) {
 <!-- Custom Css -->
 <link rel="stylesheet" href="assets/plugins/bootstrap/css/bootstrap.min.css">
 <link rel="stylesheet" href="assets/css/style.min.css">  
- 
+<script>
+var loadFile = function(event) {
+	var image = document.getElementById('output');
+	image.src = URL.createObjectURL(event.target.files[0]);
+};
+</script>
 </head>
 
 <body class="theme-blush">
@@ -58,9 +63,10 @@ function generateRandomString($length = 8) {
                           ?>
                     </div>
                     <div class="body">
-                        <div class="input-group mb-3">
+                    <div class="input-group mb-3">
                         <strong><p>Upload Passport </p></strong>
-                        <input type="file" name ="picx" max-size="1000" accept ="image/png, image/jpg, image/jpeg" required = "yes" >
+                        <p><img id="output" width="200" /></p>
+                        <input type="file" name ="picx"  id="file"  onchange="loadFile(event)" max-size="1000" accept ="image/png, image/jpg, image/jpeg" required = "yes" >
                          <label for="file"><strong><small>Passport Photograph - Not more than 100kb : PNG, JPG only</small> </strong></label>
                         </div>
                         <button type="submit" class="btn btn-primary btn-block waves-effect waves-light">Upload Passport :: Proceed</button>

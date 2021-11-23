@@ -471,6 +471,7 @@ function profile_update() {
     var landmark = document.getElementById("profile_landmark").value;
     var fulladdress = document.getElementById("profile_fulladdress").value;
     var town = document.getElementById("profile_town").value;
+    var pwd = document.getElementById("pwd").value;
 
     $.ajax({
         url:'../backend/updateprofile.php',
@@ -487,6 +488,7 @@ function profile_update() {
             phonenumber:phonenumber,
             landmark:landmark,
             fulladdress:fulladdress,
+            pwd:pwd,
             town:town
         },
         success:function(data){

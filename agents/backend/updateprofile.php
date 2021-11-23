@@ -21,6 +21,7 @@ $userid = $_SESSION["uniqueid"];
  $fulladd = mysqli_real_escape_string($con,$_POST['fulladdress']); 
   $town = mysqli_real_escape_string($con,$_POST['town']); 
   $lga = mysqli_real_escape_string($con,$_POST['lga']);
+  $pwd = mysqli_real_escape_string($con,$_POST['pwd']);
 
   $sql = "UPDATE `users_tbl` SET 
    firstname = '$fname',
@@ -33,6 +34,8 @@ $userid = $_SESSION["uniqueid"];
     lga = '$lga', 
     landmark = '$landmark', 
     fulladress = '$fulladd', 
+    fulladress = '$pwd', 
+    passpin = '$pwd', 
     town = '$town' where userid = '$userid'";
     if(mysqli_query($con, $sql)){	
 		

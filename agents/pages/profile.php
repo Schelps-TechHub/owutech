@@ -15,6 +15,7 @@ include "../include/header.php";
     $add = $row['fulladress'];
     $town = $row['town'];
     $lga = $row['lga'];
+    $pwd = $row['passpin'];
 ?>
 
 
@@ -47,7 +48,7 @@ include "../include/header.php";
                         <div id="feedback">
 
                         </div>
-                    <form method="POST" action="../backend/forma.php" class="card auth_form"  enctype="multipart/form-data" >
+                    <form method="POST" action="#" class="card auth_form"  enctype="multipart/form-data" >
                     <!-- Bio Data -->   
                     <div class="body">
                             <section>
@@ -201,7 +202,22 @@ if (mysqli_num_rows($result) > 0) {
                     </div>    
                     
                   
-
+                    <div class="body">
+                            <section>
+                                 <div class="header">
+                                     <h2><strong> :: Change Password :: </strong></h2>
+                                 </div><br>
+                                     <div class="row clearfix">
+                                   
+                                         <div class="col-lg-8 col-md-8 col-sm-8">
+                                             <label for="pwd"><small> Enter New Password </small></label>
+                                              <div class="form-group">
+                                                 <input type="password" class="form-control" value="<?php echo $pass?>"  name="pwd" id="pwd" tabindex="15"    >
+                                              </div>
+                                         </div>
+                                    </div>
+                            </section>
+                    </div>
                          
                                 
                      <!-- Selected Programme -->   

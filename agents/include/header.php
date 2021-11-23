@@ -71,7 +71,9 @@ if(!isset($_SESSION['uniqueid'])){
     <ul class="navbar-nav">
       
         <li><a href="../backend/logout.php" class="mega-menu" title="Sign Out"><i class="zmdi zmdi-power"></i></a></li>
+        <li><a href="../backend/logout.php" class="mega-menu" title="Change Password"><i class="zmdi zmdi-lock"></i></a></li>
     </ul>
+    
 </div>
 
 <!-- Left Sidebar -->
